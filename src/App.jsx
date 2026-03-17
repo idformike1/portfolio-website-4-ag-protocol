@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 import { animationEngine } from './core/AnimationEngine';
 import { smoothScroll } from './core/SmoothScroll';
 
@@ -14,9 +15,7 @@ function App() {
       <Navbar />
       
       <main data-scroll-container>
-        <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <h1>PHASE 2.1:<br />MAGNETIC NAV ACTIVE</h1>
-        </section>
+        <Hero />
         
         <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#1c1d20' }}>
           <h2>SMOOTH SCROLL LOADED</h2>
