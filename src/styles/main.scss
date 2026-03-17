@@ -388,8 +388,8 @@ img, video {
 
 // --- Footer Section ---
 .footer {
-  padding-top: 8vh; // Reduced from 15vh
-  padding-bottom: 3vh; // Reduced from 5vh
+  padding-top: 5vh; // Minimal top padding
+  padding-bottom: 2vh; 
   background-color: $color-dark;
   color: $color-white;
   position: relative;
@@ -400,57 +400,58 @@ img, video {
   }
 
   &__top {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 3vh;
+    margin-bottom: 4vh;
+  }
+
+  &__cta-group {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 4vh; // Compressed
-    margin-bottom: 6vh; // Compressed from 10vh
+    width: 100%;
+    gap: 2rem;
   }
 
   &__header {
     h2 {
-      font-size: clamp(40px, 5vw, 70px); // Half the size of massive H1
+      font-size: clamp(32px, 4vw, 60px); 
       text-transform: none;
       font-weight: 400;
-      line-height: 1.1;
+      line-height: 1;
+      white-space: nowrap;
     }
   }
 
   &__contact-info {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 3rem;
-    margin-bottom: 6vh; // Compressed from 15vh
+    margin-bottom: 4vh;
 
     .contact-item {
-      grid-column: span 4;
-      
-      .metadata {
-        font-size: 12px;
-        color: $color-grey;
-        letter-spacing: 0.1em;
-        margin-bottom: 1.5rem;
-      }
+      display: flex;
+      align-items: center;
 
-      a, p {
-        font-size: clamp(16px, 1.25vw, 20px);
-        color: $color-white;
-      }
-
-      // Pill button style as requested
       .pill-button {
         display: inline-block;
-        padding: 1rem 2rem;
+        padding: 0.8rem 1.8rem; // Tighter padding
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 50px;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
+        transition: all 0.3s ease;
+        font-size: clamp(14px, 1.1vw, 17px);
         
         &:hover {
           background-color: $color-white;
           color: $color-dark;
           border-color: $color-white;
         }
+      }
+
+      .location-text {
+        font-size: clamp(14px, 1.1vw, 17px);
+        color: $color-grey;
       }
     }
   }
@@ -460,15 +461,15 @@ img, video {
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 3rem; // Compressed
+    padding-top: 2rem;
   }
 
   &__socials {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
 
     .social-item a {
-      font-size: 16px;
+      font-size: 15px;
       color: $color-white;
     }
   }
@@ -476,16 +477,16 @@ img, video {
   &__copyright {
     p {
       color: $color-grey;
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 }
 
-// Modifier for circular button in footer - reduced size
+// Modifier for circular button in footer
 .circular-button--footer {
-  width: clamp(120px, 12vw, 160px); // Half the size of original
-  height: clamp(120px, 12vw, 160px);
-  background-color: #3b59ff; // Keeping the blue
+  width: clamp(100px, 10vw, 130px); // Even smaller
+  height: clamp(100px, 10vw, 130px);
+  background-color: #3b59ff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -501,31 +502,34 @@ img, video {
     justify-content: center;
     color: white;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
   }
 }
 
 @media (max-width: 768px) {
   .footer {
-    &__top {
+    &__cta-group {
         flex-direction: column;
         align-items: flex-start;
-        gap: 3rem;
+        gap: 2rem;
+    }
+    
+    &__header h2 {
+      white-space: normal;
     }
 
     &__contact-info {
-        .contact-item {
-            grid-column: span 12;
-            margin-bottom: 2rem;
-        }
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
     }
 
     &__bottom {
         flex-direction: column-reverse;
         align-items: flex-start;
-        gap: 2rem;
+        gap: 1.5rem;
     }
   }
 }
