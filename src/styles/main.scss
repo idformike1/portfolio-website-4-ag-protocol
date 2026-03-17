@@ -318,7 +318,8 @@ img, video {
 .sliding-gallery {
   position: relative;
   z-index: 2;
-  background-color: #f1f1f1; // Match reference lighter background
+  // Transparent background to allow footer to show in curve corners
+  background-color: transparent; 
   padding: 10vh 0;
 
   &__wrapper {
@@ -328,6 +329,8 @@ img, video {
     width: 150vw; 
     position: relative;
     left: -25vw; 
+    background-color: #f1f1f1; // The content has the background
+    padding: 10vh 0;
   }
 
   &__row {
@@ -339,12 +342,14 @@ img, video {
 
   .shadow-wrapper {
     position: absolute;
-    bottom: 0;
+    top: 100%; // Start immediately after the wrapper
+    left: 0;
     height: 100px;
     width: 100%;
     overflow: hidden;
     z-index: 3;
     pointer-events: none;
+    margin-top: -1px; // Seal gap
   }
 
   .shadow {
@@ -353,7 +358,7 @@ img, video {
     left: -10%;
     border-radius: 0 0 50% 50%;
     background: #f1f1f1;
-    box-shadow: 0px 50px 50px rgba(0,0,0,0.2);
+    box-shadow: 0px 100px 50px rgba(0,0,0,0.1); // Organic depth
     position: absolute;
     bottom: 0;
   }
