@@ -49,8 +49,58 @@ img, video {
   display: block;
 }
 
-// --- Selection Style ---
-::selection {
-  background: $color-white;
-  color: $color-dark;
+// --- Navbar ---
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  @include nav-seal;
+  mix-blend-mode: difference; // Dennis Snellenberg style white/black flip
+  
+  &__logo {
+    .nav-link {
+      font-weight: 450;
+      font-size: 18px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 2rem;
+    
+    .nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-link {
+      padding: 1rem;
+      font-weight: 400;
+      position: relative;
+      transition: color 0.3s $ease-power3-out;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0.5rem;
+        left: 0;
+        background-color: $color-white;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s $ease-expo-out;
+      }
+
+      &:hover {
+        &::after {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+      }
+    }
+  }
 }
