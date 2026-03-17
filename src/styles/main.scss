@@ -344,13 +344,12 @@ img, video {
     position: absolute;
     top: 100%; 
     left: 0;
-    height: 300px; // Very deep bulge
+    height: 200px; // Reduced by one third (from 300px)
     width: 100%;
     overflow: hidden;
     z-index: 3;
     pointer-events: none;
     margin-top: -1px; 
-    background-color: $color-dark; // Fix color difference with footer reveal
   }
 
   .shadow {
@@ -390,8 +389,8 @@ img, video {
 
 // --- Footer Section ---
 .footer {
-  padding-top: 350px; // More space for the deep bulge
-  padding-bottom: 2vh; 
+  padding-top: 100px; // Minimal space, bulge does the rest
+  padding-bottom: 50px;
   background-color: $color-dark;
   color: $color-white;
   position: relative;
@@ -400,35 +399,36 @@ img, video {
   &__container {
     @include container;
     position: relative;
-    z-index: 10; // Ensure header is above the gallery bulge reveal
+    z-index: 10;
   }
 
   &__top {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 3vh;
-    margin-bottom: 4vh;
+    padding-bottom: 0;
+    margin-bottom: 8vh;
   }
 
   &__cta-group {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
     gap: 3rem;
   }
 
   &__header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem; // Slightly tighter gap
+    &-text {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
     .footer__author {
-      width: 80px; // Fixed size for better control
-      height: 80px;
+      width: clamp(60px, 6vw, 80px);
+      height: clamp(60px, 6vw, 80px);
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
-      border: 2px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
 
       img {
         width: 100%;
@@ -438,83 +438,126 @@ img, video {
     }
 
     h2 {
-      font-size: clamp(32px, 4vw, 60px); 
+      font-size: clamp(48px, 9vw, 100px); 
       text-transform: none;
-      font-weight: 400;
-      line-height: 1;
-      white-space: nowrap;
+      font-weight: 300;
+      line-height: 1.1;
+      white-space: normal;
+      
+      .footer__arrow {
+        margin-left: 1rem;
+        width: clamp(30px, 4vw, 50px);
+        height: auto;
+        vertical-align: middle;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__button-wrapper {
+    position: relative;
+    padding-bottom: 60px; // Push button over the line
+
+    .footer__separator-line {
+      position: absolute;
+      bottom: 90px;
+      right: 0;
+      width: 100vw;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1;
+      pointer-events: none;
     }
   }
 
   &__contact-info {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 3rem;
-    margin-bottom: 4vh;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 12vh;
 
     .contact-item {
-      display: flex;
-      align-items: center;
+      width: 100%;
 
       .pill-button {
         display: inline-block;
-        padding: 0.8rem 1.8rem; // Tighter padding
+        padding: 1.8rem 3.5rem;
         border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50px;
+        border-radius: 100px;
         transition: all 0.3s ease;
-        font-size: clamp(14px, 1.1vw, 17px);
+        font-size: clamp(16px, 1.5vw, 22px);
+        width: fit-content;
+        text-decoration: none;
+        color: white;
         
         &:hover {
-          background-color: $color-white;
-          color: $color-dark;
-          border-color: $color-white;
+          background-color: #3b59ff;
+          border-color: #3b59ff;
         }
       }
+    }
+  }
 
-      .location-text {
-        font-size: clamp(14px, 1.1vw, 17px);
-        color: $color-grey;
+  &__label {
+    display: block;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  &__bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  &__socials-group {
+    .footer__socials-links {
+      display: flex;
+      gap: 2.5rem;
+
+      a {
+        font-size: 15px;
+        color: white;
+        text-decoration: none;
+        font-weight: 400;
+        
+        &:hover {
+          opacity: 0.6;
+        }
       }
     }
   }
 
-  &__bottom {
+  &__meta-group {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 2rem;
-  }
+    gap: 5rem;
 
-  &__socials {
-    display: flex;
-    gap: 2rem;
-
-    .social-item a {
-      font-size: 15px;
-      color: $color-white;
-    }
-  }
-
-  &__copyright {
-    p {
-      color: $color-grey;
-      font-size: 13px;
+    .meta-item {
+      p {
+        font-size: 15px;
+        color: white;
+      }
     }
   }
 }
 
 // Modifier for circular button in footer
 .circular-button--footer {
-  width: clamp(100px, 10vw, 130px); // Even smaller
-  height: clamp(100px, 10vw, 130px);
-  background-color: #3b59ff;
+  width: clamp(150px, 13vw, 190px);
+  height: clamp(150px, 13vw, 190px);
+  background-color: #455ce9;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
+  z-index: 2;
   transition: transform 0.3s $ease-power3-out;
 
   .circular-button__link {
@@ -525,9 +568,8 @@ img, video {
     justify-content: center;
     color: white;
     text-decoration: none;
-    font-size: 13px;
+    font-size: clamp(14px, 1.2vw, 18px);
     text-align: center;
-    padding: 15px;
   }
 }
 
