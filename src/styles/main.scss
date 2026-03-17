@@ -483,25 +483,32 @@ img, video {
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 12vh;
+    width: 100%;
 
     .contact-item {
+      width: 100%; // Allow flex item to take full width
+      display: flex;
+      justify-content: flex-start;
+
       .pill-button {
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 1.8rem 3.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 100px;
-        transition: all 0.3s ease;
-        font-size: clamp(16px, 1.5vw, 20px);
-        min-width: clamp(300px, 25vw, 450px); // Consistent width
+        transition: all 0.4s $ease-power3-out;
+        font-size: clamp(16px, 1.4vw, 19px);
+        width: 450px; // STRICT FIXED WIDTH FOR PARITY
         text-align: center;
         text-decoration: none;
         color: white;
+        background: transparent;
+        white-space: nowrap;
         
         &:hover {
-          background-color: #3b59ff;
-          border-color: #3b59ff;
+          background-color: #455ce9;
+          border-color: #455ce9;
         }
       }
     }
@@ -587,66 +594,79 @@ img, video {
     
     &__cta-group {
         flex-direction: column;
-        align-items: center; // Center everything on mobile for better balance
-        gap: 4rem;
+        align-items: center; 
+        gap: 6rem; // More space for circular button
         text-align: center;
     }
 
     &__header {
+      width: 100%;
+
       &-text {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 2rem;
       }
       
       .footer__author {
         margin-top: 0;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
+        width: 70px;
+        height: 70px;
       }
 
       h2 {
-        font-size: clamp(40px, 12vw, 60px);
+        font-size: clamp(40px, 12vw, 56px);
         text-align: center;
+        line-height: 1.2;
         
         .footer__arrow {
           display: block;
-          margin: 10px auto 0;
-          transform: rotate(90deg); // Point down on mobile
+          margin: 15px auto 0;
+          transform: rotate(90deg);
+          font-size: 32px;
         }
       }
     }
 
     &__button-wrapper {
       width: 100%;
+      height: 120px;
+      display: flex;
       justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
 
       .footer__separator-line {
-        width: 200vw;
-        left: -50vw;
+        width: 300vw;
+        left: -100vw;
+        top: 50%;
       }
     }
     
     .circular-button--footer {
-      width: 140px;
-      height: 140px;
+      width: clamp(140px, 40vw, 160px);
+      height: clamp(140px, 40vw, 160px);
+      margin: 0 auto;
     }
 
     &__contact-info {
         width: 100%;
         align-items: center;
-        gap: 1rem;
+        gap: 1.5rem;
+        margin-bottom: 8vh;
 
         .contact-item {
           width: 100%;
-          display: flex;
           justify-content: center;
 
           .pill-button {
             width: 100%;
             min-width: 0;
-            max-width: 350px;
-            padding: 1.5rem 2rem;
-            font-size: 15px;
+            max-width: 380px; // Consistent max-width on mobile
+            padding: 1.6rem 2rem;
+            font-size: 16px;
           }
         }
     }
@@ -655,7 +675,7 @@ img, video {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 3rem;
+        gap: 4rem;
     }
 
     &__socials-group {
@@ -670,6 +690,10 @@ img, video {
       flex-direction: column;
       gap: 2rem;
       align-items: center;
+      
+      .meta-item {
+        text-align: center;
+      }
     }
   }
 }
