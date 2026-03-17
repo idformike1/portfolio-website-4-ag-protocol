@@ -390,7 +390,7 @@ img, video {
 
 // --- Footer Section ---
 .footer {
-  padding-top: 300px; // Match bulge height to provide visual gap without overlap
+  padding-top: 350px; // More space for the deep bulge
   padding-bottom: 2vh; 
   background-color: $color-dark;
   color: $color-white;
@@ -399,6 +399,8 @@ img, video {
   
   &__container {
     @include container;
+    position: relative;
+    z-index: 10; // Ensure header is above the gallery bulge reveal
   }
 
   &__top {
@@ -412,7 +414,7 @@ img, video {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   &__header {
