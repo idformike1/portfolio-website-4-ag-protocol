@@ -236,7 +236,7 @@ img, video {
   &:hover {
     opacity: 0.4;
     
-    &__title h2 {
+    .work-row__title h2 {
       transform: translateX(20px);
     }
   }
