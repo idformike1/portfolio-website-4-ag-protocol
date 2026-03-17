@@ -388,13 +388,14 @@ img, video {
 }
 
 // --- Footer Section ---
+// --- Footer Section ---
 .footer {
   padding-top: 80px; 
   padding-bottom: 50px;
   background-color: $color-dark;
   color: $color-white;
   position: relative;
-  z-index: 5;
+  z-index: 1; // Must be 1 so Sliding Gallery (z-index 2) slides over it
   
   &__container {
     @include container;
@@ -417,7 +418,7 @@ img, video {
   &__header {
     &-text {
       display: flex;
-      align-items: flex-start; // Align with top of text
+      align-items: flex-start; 
       gap: 2.5rem;
       position: relative;
     }
@@ -429,7 +430,7 @@ img, video {
       overflow: hidden;
       flex-shrink: 0;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 5px; // Micro-adjustment for 'L' cap height alignment
+      margin-top: 5px; 
 
       img {
         width: 100%;
@@ -498,7 +499,7 @@ img, video {
         border-radius: 100px;
         transition: all 0.4s $ease-power3-out;
         font-size: 19px;
-        width: 450px; // FIXED WIDTH FOR STRICT PARITY
+        width: 450px !important; // STRICT FIXED WIDTH FOR PARITY
         text-align: center;
         text-decoration: none;
         color: white;
