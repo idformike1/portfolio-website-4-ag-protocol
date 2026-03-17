@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Narrative from './components/Narrative';
 import WorkGallery from './components/WorkGallery';
+import SlidingGallery from './components/SlidingGallery';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
 import { animationEngine } from './core/AnimationEngine';
@@ -22,11 +23,7 @@ function App() {
         <Hero />
         <Narrative />
         <WorkGallery />
-        
-        <section style={{ height: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#1c1d20' }}>
-          <h2>SMOOTH SCROLL LOADED</h2>
-        </section>
-        
+        <SlidingGallery />
         <Footer />
       </main>
     </div>
