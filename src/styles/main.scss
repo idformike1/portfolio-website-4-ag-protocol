@@ -184,6 +184,92 @@ img, video {
   }
 }
 
+// --- Narrative Section ---
+.narrative {
+  @include section-padding;
+  background-color: $color-dark;
+  
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+  }
+
+  &__statement {
+    grid-column: 1 / span 8;
+    
+    h2 {
+      @include font-h2;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.3;
+      font-weight: 400;
+    }
+  }
+
+  &__details {
+    grid-column: 9 / span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    p {
+      @include font-body;
+      color: $color-grey;
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__button-wrapper {
+    margin-top: auto;
+    display: flex;
+  }
+}
+
+// --- Circular Button ---
+.circular-button {
+  width: clamp(160px, 15vw, 200px);
+  height: clamp(160px, 15vw, 200px);
+  background-color: #455ce9; // Dennis Snellenberg accent blue
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s $ease-power3-out;
+  cursor: pointer;
+
+  &__link {
+    color: $color-white;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &:hover {
+    background-color: #334bd3;
+  }
+}
+
+@media (max-width: 768px) {
+  .narrative {
+    &__statement {
+      grid-column: 1 / span 12;
+      margin-bottom: 2rem;
+    }
+    
+    &__details {
+      grid-column: 1 / span 12;
+    }
+
+    &__button-wrapper {
+      margin-top: 3rem;
+      justify-content: center;
+    }
+  }
+}
+
 // --- Work Gallery ---
 .work-gallery {
   padding-top: 10vh;
