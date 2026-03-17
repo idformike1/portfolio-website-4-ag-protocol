@@ -314,6 +314,115 @@ img, video {
   }
 }
 
+// --- Footer Section ---
+.footer {
+  padding-top: 15vh;
+  padding-bottom: 5vh;
+  background-color: $color-dark;
+  color: $color-white;
+  position: relative;
+  z-index: 10;
+  
+  &__container {
+    @include container;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5vh;
+    margin-bottom: 10vh;
+  }
+
+  &__header {
+    h2 {
+      @include font-h1; // Use the massive fluid H1 token
+      text-transform: none;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+  }
+
+  &__contact-info {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+    margin-bottom: 15vh;
+
+    .contact-item {
+      grid-column: span 4;
+      
+      .metadata {
+        font-size: 14px;
+        color: $color-grey;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+      }
+
+      a, p {
+        font-size: clamp(18px, 1.5vw, 24px);
+        color: $color-white;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 4rem;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 3rem;
+
+    .social-item a {
+      font-size: 18px;
+      color: $color-white;
+    }
+  }
+
+  &__copyright {
+    p {
+      color: $color-grey;
+      font-size: 14px;
+    }
+  }
+}
+
+// Modifier for large circular button in footer
+.circular-button--large {
+  width: clamp(200px, 20vw, 250px);
+  height: clamp(200px, 20vw, 250px);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    &__contact-info {
+        .contact-item {
+            grid-column: span 12;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__bottom {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+  }
+}
+
 // --- Work Gallery ---
 .work-gallery {
   @include section-padding;

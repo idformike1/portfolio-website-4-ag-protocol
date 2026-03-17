@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Narrative from './components/Narrative';
 import WorkGallery from './components/WorkGallery';
+import Footer from './components/Footer';
 import Cursor from './components/Cursor';
 import { animationEngine } from './core/AnimationEngine';
 import { smoothScroll } from './core/SmoothScroll';
@@ -22,17 +23,11 @@ function App() {
         <Narrative />
         <WorkGallery />
         
-        <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#1c1d20' }}>
+        <section style={{ height: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#1c1d20' }}>
           <h2>SMOOTH SCROLL LOADED</h2>
         </section>
         
-        <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <h2>GSAP ENGINE READY</h2>
-        </section>
-
-        <footer style={{ padding: '4rem', textAlign: 'center' }}>
-          <p>© 2026 Dennis Snellenberg Clone Concept</p>
-        </footer>
+        <Footer />
       </main>
     </div>
   );
