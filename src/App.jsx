@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import WorkGallery from './components/WorkGallery';
 import { animationEngine } from './core/AnimationEngine';
 import { smoothScroll } from './core/SmoothScroll';
 
@@ -16,6 +17,7 @@ function App() {
       
       <main data-scroll-container>
         <Hero />
+        <WorkGallery />
         
         <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#1c1d20' }}>
           <h2>SMOOTH SCROLL LOADED</h2>
