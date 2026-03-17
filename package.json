@@ -1,0 +1,31 @@
+{
+  "name": "portflio-website-4-using-ag-protocol-website-development-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idformike1/portfolio-website-4-ag-protocol.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/idformike1/portfolio-website-4-ag-protocol/issues"
+  },
+  "homepage": "https://github.com/idformike1/portfolio-website-4-ag-protocol#readme",
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
+    "gsap": "^3.14.2",
+    "sass": "^1.98.0"
+  },
+  "devDependencies": {
+    "vite": "^8.0.0"
+  }
+}
