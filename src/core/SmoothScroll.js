@@ -34,8 +34,6 @@ class SmoothScroll {
     });
 
     gsap.ticker.lagSmoothing(0);
-
-    console.log("🌊 SmoothScroll: Lenis Active & Linked to GSAP.");
   }
 
   scrollTo(target, options = {}) {

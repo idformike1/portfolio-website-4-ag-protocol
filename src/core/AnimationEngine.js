@@ -20,8 +20,6 @@ class AnimationEngine {
       expoOut: "expo.out", // Corresponds to cubic-bezier(0.19, 1, 0.22, 1)
       power3Out: "power3.out", // Corresponds to cubic-bezier(0.215, 0.61, 0.355, 1)
     };
-
-    console.log("💎 AnimationEngine: GSAP & Plugins Registered.");
   }
 
   getEase(name) {

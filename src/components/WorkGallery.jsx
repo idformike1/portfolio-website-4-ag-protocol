@@ -51,7 +51,7 @@ const WorkGallery = () => {
             },
             y: "100%",
             opacity: 0,
-            duration: 1,
+            duration: 0.8,
             stagger: 0.05,
             ease: "power3.out"
         });
