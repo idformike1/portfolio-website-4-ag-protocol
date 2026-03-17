@@ -25,6 +25,21 @@ body {
   width: 100%;
 }
 
+// --- Reveal Utilities ---
+.line-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.reveal-section {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.reveal-text {
+  will-change: transform, opacity;
+}
+
 // --- Global Classes ---
 .container {
   @include container;

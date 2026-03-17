@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
+import SplitType from 'split-type';
 
 const projects = [
   { id: 1, title: 'Project One', category: 'Design / Development', image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600&auto=format&fit=crop' },
@@ -10,7 +11,8 @@ const projects = [
 
 const WorkGallery = () => {
   const modalRef = useRef(null);
-  const cursorRef = useRef(null);
+  const containerRef = useRef(null);
+  const rowsRef = useRef([]);
   const [activeProject, setActiveProject] = useState(null);
 
   useEffect(() => {
@@ -25,6 +27,50 @@ const WorkGallery = () => {
     };
 
     window.addEventListener("mousemove", moveModal);
+
+    // Initial Reveal for Rows
+    rowsRef.current.forEach((row, i) => {
+        if (!row) return;
+        const title = row.querySelector('h2');
+        const category = row.querySelector('.work-row__category');
+        
+        const splitTitle = new SplitType(title, { types: 'lines' });
+        
+        splitTitle.lines.forEach(line => {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('line-mask');
+            line.parentNode.insertBefore(wrapper, line);
+            wrapper.appendChild(line);
+        });
+
+        gsap.from([splitTitle.lines, category], {
+            scrollTrigger: {
+                trigger: row,
+                start: "top 90%",
+                toggleActions: "play none none reverse",
+            },
+            y: "100%",
+            opacity: 0,
+            duration: 1,
+            stagger: 0.05,
+            ease: "power3.out"
+        });
+    });
+
+    // Section Fade-in logic
+    gsap.fromTo(containerRef.current, 
+      { opacity: 0 }, 
+      { 
+        opacity: 1, 
+        duration: 1, 
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 90%",
+          end: "top 60%",
+          scrub: true,
+        }
+      }
+    );
 
     return () => {
       window.removeEventListener("mousemove", moveModal);
@@ -50,7 +96,7 @@ const WorkGallery = () => {
   }, [activeProject]);
 
   return (
-    <section className="work-gallery" id="work">
+    <section ref={containerRef} className="work-gallery reveal-section" id="work">
       <div className="work-gallery__header">
          <p className="metadata">RECENT WORK</p>
       </div>
@@ -59,6 +105,7 @@ const WorkGallery = () => {
         {projects.map((project, index) => (
           <div 
             key={project.id} 
+            ref={el => rowsRef.current[index] = el}
             className="work-row"
             onMouseEnter={() => setActiveProject(index)}
             onMouseLeave={() => setActiveProject(null)}
