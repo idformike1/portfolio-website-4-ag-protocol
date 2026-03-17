@@ -390,7 +390,7 @@ img, video {
 
 // --- Footer Section ---
 .footer {
-  padding-top: 0; // Removed as requested, filled by bulge height
+  padding-top: 300px; // Match bulge height to provide visual gap without overlap
   padding-bottom: 2vh; 
   background-color: $color-dark;
   color: $color-white;
@@ -418,14 +418,15 @@ img, video {
   &__header {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem; // Slightly tighter gap
 
     .footer__author {
-      width: clamp(60px, 8vw, 100px);
-      height: clamp(60px, 8vw, 100px);
+      width: 80px; // Fixed size for better control
+      height: 80px;
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
+      border: 2px solid rgba(255, 255, 255, 0.1);
 
       img {
         width: 100%;
