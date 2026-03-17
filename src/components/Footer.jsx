@@ -16,7 +16,7 @@ const Footer = () => {
           
           <div className="footer__button-wrapper">
             <Magnetic force={0.8}>
-                <div className="circular-button circular-button--large">
+                <div className="circular-button circular-button--footer">
                     <a href="mailto:hello@dennis.com" className="circular-button__link">
                         <span>Get in touch</span>
                     </a>
@@ -28,11 +28,15 @@ const Footer = () => {
         <div className="footer__contact-info">
           <div className="contact-item">
             <p className="metadata">EMAIL</p>
-            <a href="mailto:hello@dennis.com">hello@dennis.com</a>
+            <Magnetic force={0.15}>
+                <a href="mailto:hello@dennis.com" className="pill-button">hello@dennis.com</a>
+            </Magnetic>
           </div>
           <div className="contact-item">
             <p className="metadata">PHONE</p>
-            <a href="tel:+31612345678">+31 6 123 456 78</a>
+            <Magnetic force={0.15}>
+                <a href="tel:+31612345678" className="pill-button">+31 6 123 456 78</a>
+            </Magnetic>
           </div>
           <div className="contact-item">
             <p className="metadata">LOCATION</p>

@@ -388,8 +388,8 @@ img, video {
 
 // --- Footer Section ---
 .footer {
-  padding-top: 15vh;
-  padding-bottom: 5vh;
+  padding-top: 8vh; // Reduced from 15vh
+  padding-bottom: 3vh; // Reduced from 5vh
   background-color: $color-dark;
   color: $color-white;
   position: relative;
@@ -404,13 +404,13 @@ img, video {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 5vh;
-    margin-bottom: 10vh;
+    padding-bottom: 4vh; // Compressed
+    margin-bottom: 6vh; // Compressed from 10vh
   }
 
   &__header {
     h2 {
-      @include font-h1; // Use the massive fluid H1 token
+      font-size: clamp(40px, 5vw, 70px); // Half the size of massive H1
       text-transform: none;
       font-weight: 400;
       line-height: 1.1;
@@ -420,22 +420,37 @@ img, video {
   &__contact-info {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 2rem;
-    margin-bottom: 15vh;
+    gap: 3rem;
+    margin-bottom: 6vh; // Compressed from 15vh
 
     .contact-item {
       grid-column: span 4;
       
       .metadata {
-        font-size: 14px;
+        font-size: 12px;
         color: $color-grey;
         letter-spacing: 0.1em;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
 
       a, p {
-        font-size: clamp(18px, 1.5vw, 24px);
+        font-size: clamp(16px, 1.25vw, 20px);
         color: $color-white;
+      }
+
+      // Pill button style as requested
+      .pill-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+        
+        &:hover {
+          background-color: $color-white;
+          color: $color-dark;
+          border-color: $color-white;
+        }
       }
     }
   }
@@ -445,15 +460,15 @@ img, video {
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 4rem;
+    padding-top: 3rem; // Compressed
   }
 
   &__socials {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
 
     .social-item a {
-      font-size: 18px;
+      font-size: 16px;
       color: $color-white;
     }
   }
@@ -466,10 +481,30 @@ img, video {
   }
 }
 
-// Modifier for large circular button in footer
-.circular-button--large {
-  width: clamp(200px, 20vw, 250px);
-  height: clamp(200px, 20vw, 250px);
+// Modifier for circular button in footer - reduced size
+.circular-button--footer {
+  width: clamp(120px, 12vw, 160px); // Half the size of original
+  height: clamp(120px, 12vw, 160px);
+  background-color: #3b59ff; // Keeping the blue
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s $ease-power3-out;
+
+  .circular-button__link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+  }
 }
 
 @media (max-width: 768px) {
