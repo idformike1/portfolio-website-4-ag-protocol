@@ -318,17 +318,16 @@ img, video {
 .sliding-gallery {
   position: relative;
   z-index: 2;
-  background-color: $color-dark;
-  overflow: hidden;
+  background-color: #f1f1f1; // Match reference lighter background
   padding: 10vh 0;
 
   &__wrapper {
     display: flex;
     flex-direction: column;
     gap: 3vw;
-    width: 150vw; // Provide enough width for movement
+    width: 150vw; 
     position: relative;
-    left: -25vw; // Center the oversized container
+    left: -25vw; 
   }
 
   &__row {
@@ -336,6 +335,27 @@ img, video {
     gap: 3vw;
     width: max-content;
     will-change: transform;
+  }
+
+  .shadow-wrapper {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .shadow {
+    height: 1500%;
+    width: 120%;
+    left: -10%;
+    border-radius: 0 0 50% 50%;
+    background: #f1f1f1;
+    box-shadow: 0px 50px 50px rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 0;
   }
 }
 
@@ -368,7 +388,7 @@ img, video {
   background-color: $color-dark;
   color: $color-white;
   position: relative;
-  z-index: 10;
+  z-index: 1;
   
   &__container {
     @include container;

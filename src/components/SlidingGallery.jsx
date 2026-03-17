@@ -24,6 +24,7 @@ const SlidingGallery = () => {
   const container = useRef(null);
   const firstSlider = useRef(null);
   const secondSlider = useRef(null);
+  const shadowWrapper = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -50,15 +51,15 @@ const SlidingGallery = () => {
       x: -150,
     });
 
-    // Perspective Shift / Height transition as it leaves view
-    gsap.to(container.current, {
+    // Geometric Mask Curve: Height animation for .shadow-wrapper
+    gsap.to(shadowWrapper.current, {
       scrollTrigger: {
         trigger: container.current,
-        start: "top bottom",
-        end: "bottom top",
+        start: "bottom bottom", // Start when bottom of gallery enters
+        end: "bottom top",    // End when gallery is off-screen
         scrub: true,
       },
-      height: "80vh", // Squeeze effect
+      height: 0,
       ease: "none",
     });
 
@@ -109,6 +110,11 @@ const SlidingGallery = () => {
           ))}
         </div>
 
+      </div>
+
+      {/* Larose Method: Geometric Mask Curve */}
+      <div ref={shadowWrapper} className="shadow-wrapper">
+        <div className="shadow"></div>
       </div>
     </section>
   );
