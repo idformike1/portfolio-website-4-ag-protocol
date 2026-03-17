@@ -342,23 +342,23 @@ img, video {
 
   .shadow-wrapper {
     position: absolute;
-    top: 100%; // Start immediately after the wrapper
+    top: 100%; 
     left: 0;
-    height: 100px;
+    height: 150px; // Larger canvas for the bulge
     width: 100%;
     overflow: hidden;
     z-index: 3;
     pointer-events: none;
-    margin-top: -1px; // Seal gap
+    margin-top: -1px; 
   }
 
   .shadow {
-    height: 1500%;
-    width: 120%;
-    left: -10%;
+    height: 1500%; // Extreme vertical scale to ensure bottom is never seen
+    width: 150%; // Wider arc to remove straight side artifacts
+    left: -25%; // Centered ( (150-100)/2 )
     border-radius: 0 0 50% 50%;
     background: #f1f1f1;
-    box-shadow: 0px 100px 50px rgba(0,0,0,0.1); // Organic depth
+    box-shadow: 0px 100px 50px rgba(0,0,0,0.1); 
     position: absolute;
     bottom: 0;
   }
