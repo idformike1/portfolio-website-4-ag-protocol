@@ -17,9 +17,7 @@ const Footer = () => {
                   <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Author" />
                 </div>
                 <h2>Let's work <br /> together
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="footer__arrow">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <span className="footer__arrow">↘</span>
                 </h2>
               </div>
             </div>
