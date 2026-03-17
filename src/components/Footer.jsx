@@ -12,6 +12,9 @@ const Footer = () => {
         <div className="footer__top">
           <div className="footer__cta-group">
             <div className="footer__header">
+              <div className="footer__author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Author" />
+              </div>
               <h2>Let's work together</h2>
             </div>
             

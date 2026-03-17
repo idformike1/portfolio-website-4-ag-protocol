@@ -320,7 +320,7 @@ img, video {
   z-index: 2;
   // Transparent background to allow footer to show in curve corners
   background-color: transparent; 
-  padding: 10vh 0;
+  padding: 10vh 0 0 0; // Removed bottom padding
 
   &__wrapper {
     display: flex;
@@ -330,7 +330,7 @@ img, video {
     position: relative;
     left: -25vw; 
     background-color: #f1f1f1; // The content has the background
-    padding: 10vh 0;
+    padding: 10vh 0 0 0; // Removed bottom padding
   }
 
   &__row {
@@ -344,12 +344,13 @@ img, video {
     position: absolute;
     top: 100%; 
     left: 0;
-    height: 150px; // Larger canvas for the bulge
+    height: 300px; // Very deep bulge
     width: 100%;
     overflow: hidden;
     z-index: 3;
     pointer-events: none;
     margin-top: -1px; 
+    background-color: $color-dark; // Fix color difference with footer reveal
   }
 
   .shadow {
@@ -358,7 +359,8 @@ img, video {
     left: -25%; // Centered ( (150-100)/2 )
     border-radius: 0 0 50% 50%;
     background: #f1f1f1;
-    box-shadow: 0px 100px 50px rgba(0,0,0,0.1); 
+    // Removed box-shadow to fix color difference between bulge and footer
+    box-shadow: none; 
     position: absolute;
     bottom: 0;
   }
@@ -388,7 +390,7 @@ img, video {
 
 // --- Footer Section ---
 .footer {
-  padding-top: 5vh; // Minimal top padding
+  padding-top: 0; // Removed as requested, filled by bulge height
   padding-bottom: 2vh; 
   background-color: $color-dark;
   color: $color-white;
@@ -414,6 +416,24 @@ img, video {
   }
 
   &__header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .footer__author {
+      width: clamp(60px, 8vw, 100px);
+      height: clamp(60px, 8vw, 100px);
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
     h2 {
       font-size: clamp(32px, 4vw, 60px); 
       text-transform: none;
