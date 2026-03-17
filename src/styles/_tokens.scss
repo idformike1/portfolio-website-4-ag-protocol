@@ -1,0 +1,24 @@
+// --- Color Tokens ---
+$color-dark: #1c1d20;
+$color-white: #ffffff;
+$color-grey: #999d9e;
+
+// --- Fluid Typography (Based on 1600px max-width) ---
+// Formula: clamp(min, preferred, max)
+// Preferred calculated as (target_px / 1600) * 100 
+
+$font-h1: clamp(64px, 9.73vw, 155.7px);
+$font-h2: clamp(32px, 2.44vw, 39px);
+$font-h3: clamp(24px, 2vw, 32px);
+$font-body: clamp(16px, 1.125vw, 18px);
+$font-meta: 14px;
+
+// --- GSAP Ease Curves (Converted to cubic-bezier for CSS fallback) ---
+$ease-expo-out: cubic-bezier(0.19, 1, 0.22, 1); // Expo.easeOut
+$ease-power3-out: cubic-bezier(0.215, 0.610, 0.355, 1.000); // Power3.easeOut
+$ease-magnetic: cubic-bezier(0.33, 1, 0.68, 1);
+
+// --- Layout Tokens ---
+$max-width: 1600px;
+$container-padding: clamp(20px, 4vw, 62px);
+$grid-columns: 12;

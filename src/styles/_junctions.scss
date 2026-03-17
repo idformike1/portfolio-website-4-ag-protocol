@@ -1,0 +1,47 @@
+@import 'tokens';
+
+// --- Fluid Spacing Mixins ---
+@mixin section-padding {
+  padding-top: clamp(80px, 10vw, 160px);
+  padding-bottom: clamp(80px, 10vw, 160px);
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// --- Grid Mixin (12-column logic) ---
+@mixin grid-column($span: 1) {
+  width: calc((100% / #{$grid-columns}) * #{$span});
+}
+
+// --- Typography Mixins ---
+@mixin font-h1 {
+  font-size: $font-h1;
+  font-weight: 450;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@mixin font-h2 {
+  font-size: $font-h2;
+  font-weight: 450;
+  line-height: 1.1;
+}
+
+@mixin font-body {
+  font-size: $font-body;
+  font-weight: 400;
+  line-height: 1.5;
+}
