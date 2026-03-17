@@ -410,7 +410,7 @@ img, video {
   &__cta-group {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center; // Vertically center header and button
     width: 100%;
     gap: 3rem;
   }
@@ -418,8 +418,9 @@ img, video {
   &__header {
     &-text {
       display: flex;
-      align-items: center;
+      align-items: flex-start; // Align with top of first line
       gap: 2rem;
+      position: relative;
     }
 
     .footer__author {
@@ -429,6 +430,7 @@ img, video {
       overflow: hidden;
       flex-shrink: 0;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 10px; // Align with capital letters of first line
 
       img {
         width: 100%;
@@ -444,6 +446,8 @@ img, video {
       line-height: 1.1;
       white-space: normal;
       margin: 0;
+      position: relative;
+      z-index: 2;
       
       .footer__arrow {
         margin-left: 1.5rem;
@@ -457,17 +461,19 @@ img, video {
 
   &__button-wrapper {
     position: relative;
-    padding-bottom: 70px; // Space for circle to sit low
+    display: flex;
+    align-items: center;
 
     .footer__separator-line {
       position: absolute;
-      bottom: 95px; // Position exactly at button center
+      top: 50%; // Center vertically relative to button
       right: 0;
-      width: 150vw; // Span way beyond left to cover the container
+      width: 150vw; 
       height: 1px;
       background: rgba(255, 255, 255, 0.1);
       z-index: 1;
       pointer-events: none;
+      transform: translateY(-50%);
     }
   }
 
@@ -475,20 +481,21 @@ img, video {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-bottom: 12vh;
 
     .contact-item {
-      width: 100%;
-
       .pill-button {
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 1.8rem 3.5rem;
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 100px;
         transition: all 0.3s ease;
-        font-size: clamp(16px, 1.5vw, 22px);
-        width: fit-content;
+        font-size: clamp(16px, 1.5vw, 20px);
+        min-width: clamp(300px, 25vw, 450px); // Consistent width
+        text-align: center;
         text-decoration: none;
         color: white;
         
@@ -576,26 +583,93 @@ img, video {
 
 @media (max-width: 768px) {
   .footer {
+    padding-top: 40px;
+    
     &__cta-group {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
+        align-items: center; // Center everything on mobile for better balance
+        gap: 4rem;
+        text-align: center;
+    }
+
+    &__header {
+      &-text {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .footer__author {
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: clamp(40px, 12vw, 60px);
+        text-align: center;
+        
+        .footer__arrow {
+          display: block;
+          margin: 10px auto 0;
+          transform: rotate(90deg); // Point down on mobile
+        }
+      }
+    }
+
+    &__button-wrapper {
+      width: 100%;
+      justify-content: center;
+
+      .footer__separator-line {
+        width: 200vw;
+        left: -50vw;
+      }
     }
     
-    &__header h2 {
-      white-space: normal;
+    .circular-button--footer {
+      width: 140px;
+      height: 140px;
     }
 
     &__contact-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
+        width: 100%;
+        align-items: center;
+        gap: 1rem;
+
+        .contact-item {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+          .pill-button {
+            width: 100%;
+            min-width: 0;
+            max-width: 350px;
+            padding: 1.5rem 2rem;
+            font-size: 15px;
+          }
+        }
     }
 
-    &__bottom {
-        flex-direction: column-reverse;
-        align-items: flex-start;
+    &__bottom-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    &__socials-group {
+      .footer__socials-links {
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 1.5rem;
+      }
+    }
+
+    &__meta-group {
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
     }
   }
 }
