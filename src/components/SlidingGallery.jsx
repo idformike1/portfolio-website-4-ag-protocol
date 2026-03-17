@@ -4,8 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const slider1 = [
   { color: "#e3e5e7", src: "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800&auto=format&fit=crop" },
-  { color: "#d6d7dc", src: "https://images.unsplash.com/photo-1510605395823-5b6c2ff9ba78?q=80&w=800&auto=format&fit=crop" },
-  { color: "#e3e3e3", src: "https://images.unsplash.com/photo-1519638828323-21443423528b?q=80&w=800&auto=format&fit=crop" },
+  { color: "#d6d7dc", src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop" },
+  { color: "#e3e3e3", src: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=800&auto=format&fit=crop" },
   { color: "#212121", src: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?q=80&w=800&auto=format&fit=crop" },
 ];
 
