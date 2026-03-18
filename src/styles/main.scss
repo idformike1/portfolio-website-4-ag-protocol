@@ -680,25 +680,37 @@ img, video {
     }
 
     &__bottom-section {
-        flex-direction: column-reverse; // Flip stack order
+        flex-direction: column-reverse;
         align-items: center;
-        gap: 3rem;
+        gap: 3.5rem;
         padding-top: 1.5rem;
     }
 
     &__socials-group {
       align-items: center;
+      width: 100%;
       .footer__socials-links {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 1.2rem;
+        gap: 2rem;
       }
     }
 
     &__meta-group {
-      flex-direction: column;
+      flex-direction: row; // Version and Local Time on same line
+      justify-content: space-between;
+      width: 100%;
       gap: 1.5rem;
-      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1.5rem;
+      
+      .meta-item {
+        align-items: flex-start;
+        &:last-child {
+          align-items: flex-end;
+          text-align: right;
+        }
+      }
     }
   }
 }
