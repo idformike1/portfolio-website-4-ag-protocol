@@ -389,22 +389,24 @@ img, video {
 
 // --- Footer Section ---
 // --- Footer Section ---
+// --- Footer Section ---
 .footer {
-  padding-top: 80px; 
-  padding-bottom: 50px;
+  padding: 0; // Padding handled by internal spacing for precision
   background-color: $color-dark;
   color: $color-white;
   position: relative;
-  z-index: 1; // Must be 1 so Sliding Gallery (z-index 2) slides over it
+  z-index: 1; 
+  overflow: hidden;
   
   &__container {
     @include container;
     position: relative;
+    padding-bottom: 25px; // Reduced bottom space
   }
 
   &__top {
-    padding-bottom: 0;
-    margin-bottom: 12vh;
+    padding-top: 60px; // Space from bulge
+    margin-bottom: 6vh; // Compact spacing
   }
 
   &__cta-group {
@@ -418,19 +420,19 @@ img, video {
   &__header {
     &-text {
       display: flex;
-      align-items: flex-start; 
-      gap: 2.5rem;
+      align-items: flex-start;
+      gap: 1.5rem; // Tighter gap
       position: relative;
     }
 
     .footer__author {
-      width: clamp(60px, 6vw, 85px);
-      height: clamp(60px, 6vw, 85px);
+      width: clamp(60px, 6vw, 75px);
+      height: clamp(60px, 6vw, 75px);
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 5px; 
+      margin-top: 4px; 
 
       img {
         width: 100%;
@@ -440,7 +442,7 @@ img, video {
     }
 
     h2 {
-      font-size: clamp(48px, 9.5vw, 105px); 
+      font-size: clamp(48px, 9vw, 92px); // Slightly smaller for better fit
       text-transform: none;
       font-weight: 300;
       line-height: 1.1;
@@ -449,8 +451,8 @@ img, video {
       z-index: 2;
       
       .footer__arrow {
-        margin-left: 2rem;
-        font-size: 0.7em;
+        margin-left: 1rem;
+        font-size: 0.6em;
         vertical-align: middle;
         opacity: 0.8;
       }
@@ -462,7 +464,7 @@ img, video {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
 
     .footer__separator-line {
       position: absolute;
@@ -479,14 +481,12 @@ img, video {
 
   &__contact-info {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap; // Align sideways first before vertical on mobile
     gap: 1.5rem;
-    margin-bottom: 15vh;
+    margin-bottom: 8vh; // Compacted
     width: 100%;
 
     .contact-item {
-      width: 100%;
       display: flex;
       justify-content: flex-start;
 
@@ -494,12 +494,12 @@ img, video {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1.8rem 4rem;
+        padding: 1.6rem 3.5rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 100px;
         transition: all 0.4s $ease-power3-out;
-        font-size: 19px;
-        width: 450px !important; // STRICT FIXED WIDTH FOR PARITY
+        font-size: 18px;
+        width: 450px !important; // STRICT FIXED WIDTH
         text-align: center;
         text-decoration: none;
         color: white;
@@ -516,9 +516,9 @@ img, video {
 
   &__label {
     display: block;
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.4);
-    margin-bottom: 2.5rem;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1.5rem;
     letter-spacing: 0.1em;
     font-weight: 500;
     text-transform: uppercase;
@@ -530,16 +530,20 @@ img, video {
     align-items: flex-end;
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 3rem;
+    padding-top: 2rem;
   }
 
   &__socials-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; // SOCIALS on the right
+
     .footer__socials-links {
       display: flex;
-      gap: 3rem;
+      gap: 2.5rem;
 
       a {
-        font-size: 16px;
+        font-size: 15px;
         color: white;
         text-decoration: none;
         font-weight: 400;
@@ -553,11 +557,15 @@ img, video {
 
   &__meta-group {
     display: flex;
-    gap: 6rem;
+    gap: 4rem; // Compacted
 
     .meta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; // META on the left
+
       p {
-        font-size: 16px;
+        font-size: 15px;
         color: white;
       }
     }
@@ -566,8 +574,8 @@ img, video {
 
 // Modifier for circular button in footer
 .circular-button--footer {
-  width: clamp(160px, 15vw, 200px);
-  height: clamp(160px, 15vw, 200px);
+  width: clamp(140px, 12vw, 170px); // Compacted
+  height: clamp(140px, 12vw, 170px);
   background-color: #455ce9;
   border-radius: 50%;
   display: flex;
@@ -586,19 +594,28 @@ img, video {
     justify-content: center;
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
   }
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding-top: 60px;
+    padding-top: 40px;
     
+    &__container {
+      padding-bottom: 20px;
+    }
+
+    &__top {
+      padding-top: 40px;
+      margin-bottom: 5vh;
+    }
+
     &__cta-group {
         flex-direction: column;
         align-items: center; 
-        gap: 5rem;
+        gap: 4rem;
         text-align: center;
     }
 
@@ -608,57 +625,46 @@ img, video {
       &-text {
         flex-direction: column;
         align-items: center;
-        text-align: center;
-        gap: 1.5rem;
+        gap: 1.2rem;
       }
       
       .footer__author {
-        margin-top: 0;
-        width: 75px;
-        height: 75px;
+        width: 70px;
+        height: 70px;
       }
 
       h2 {
-        font-size: clamp(40px, 12vw, 64px);
-        text-align: center;
+        font-size: clamp(38px, 11vw, 56px);
         
         .footer__arrow {
           display: block;
-          margin: 1rem auto 0;
+          margin: 0.8rem auto 0;
           transform: rotate(90deg);
-          font-size: 32px;
+          font-size: 28px;
         }
       }
     }
 
     &__button-wrapper {
       width: 100%;
-      height: 140px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 1rem 0;
-      position: relative;
+      height: 120px;
+      margin: 0.5rem 0;
 
       .footer__separator-line {
-        width: 300vw;
-        left: -100vw;
         display: block;
       }
     }
     
     .circular-button--footer {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-      z-index: 10;
+      width: 140px;
+      height: 140px;
     }
 
     &__contact-info {
-        width: 100%;
+        flex-direction: column;
         align-items: center;
         gap: 1rem;
-        margin-bottom: 8vh;
+        margin-bottom: 6vh;
 
         .contact-item {
           width: 100%;
@@ -666,38 +672,33 @@ img, video {
 
           .pill-button {
             width: 100%;
-            min-width: 0;
             max-width: 380px; 
-            padding: 1.6rem 2rem;
+            padding: 1.4rem 2rem;
             font-size: 16px;
           }
         }
     }
 
     &__bottom-section {
-        flex-direction: column;
+        flex-direction: column-reverse; // Flip stack order
         align-items: center;
-        text-align: center;
-        gap: 4rem;
-        padding-top: 2rem;
+        gap: 3rem;
+        padding-top: 1.5rem;
     }
 
     &__socials-group {
+      align-items: center;
       .footer__socials-links {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 1.5rem;
+        gap: 1.2rem;
       }
     }
 
     &__meta-group {
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 1.5rem;
       align-items: center;
-      
-      .meta-item {
-        text-align: center;
-      }
     }
   }
 }

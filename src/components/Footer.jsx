@@ -50,6 +50,17 @@ const Footer = () => {
 
         <div className="footer__bottom">
           <div className="footer__bottom-section">
+            <div className="footer__meta-group">
+              <div className="meta-item">
+                 <span className="footer__label">VERSION</span>
+                 <p>2022 © Edition</p>
+              </div>
+              <div className="meta-item">
+                 <span className="footer__label">LOCAL TIME</span>
+                 <p>06:07 AM GMT+1</p>
+              </div>
+            </div>
+
             <div className="footer__socials-group">
                <span className="footer__label">SOCIALS</span>
                <div className="footer__socials-links">
@@ -58,17 +69,6 @@ const Footer = () => {
                  <Magnetic force={0.3}><a href="#twitter">Twitter</a></Magnetic>
                  <Magnetic force={0.3}><a href="#linkedin">LinkedIn</a></Magnetic>
                </div>
-            </div>
-
-            <div className="footer__meta-group">
-              <div className="meta-item">
-                 <span className="footer__label">VERSION</span>
-                 <p>2022 © Edition</p>
-              </div>
-              <div className="meta-item">
-                 <span className="footer__label">LOCAL TIME</span>
-                 <p>01:45 PM GMT+1</p>
-              </div>
             </div>
           </div>
         </div>
